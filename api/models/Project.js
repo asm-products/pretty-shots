@@ -9,15 +9,20 @@ module.exports = {
 
   attributes: {
 
+    projectid: {
+      type: 'integer',
+      autoIncrement: true
+    },
+
     //User who is the purchaser for the project.
     owner: {
-      type: 'string',
+      model: 'user',
       required: true
     },
 
     //User who is doing the editing for the project
     editor: {
-      type: 'string'
+      model: 'user'
     },
 
     videodetails: {
@@ -30,7 +35,7 @@ module.exports = {
       preferredlength: {        //This one is kind of unwieldy, will probably want to examine/change this
         type: 'string',
         enum: ['0 - 1 minutes', '1 - 3 minutes', '3 - 5 minutes', '5 - 8 minutes',
-                  '8 - 10 minutes', ' 10 - 15 minutes', ' 15 - 20 minutes', '20+ minutes'],
+          '8 - 10 minutes', ' 10 - 15 minutes', ' 15 - 20 minutes', '20+ minutes'],
         required: true
       },
       videourl: {
